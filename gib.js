@@ -1,4 +1,0 @@
-/*
-    Gib.js Sketch/Playground
-*/
-

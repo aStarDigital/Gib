@@ -1,0 +1,26 @@
+{
+  "name": "gib",
+  "version": "1.0.0",
+  "description": "Web monetization gift cards.",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aStarDigital/Gib.git"
+  },
+  "author": "Alexander Mozeak & Adelya Aksanova",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aStarDigital/Gib/issues"
+  },
+  "homepage": "https://github.com/aStarDigital/Gib#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
