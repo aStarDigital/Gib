@@ -14,5 +14,6 @@
     },
     "background": {
         "service_worker": "app.js"
-    }
+    },
+    "permissions": ["storage"]
 }
