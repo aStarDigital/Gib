@@ -1,5 +1,6 @@
 /*
-    Gib.js Sketch/Playground
+    Gib.js Extension Script
+    This file is the WebMon AGENT that will invoke the WebMon Provider, which is a hosted service.
 */
 
 button1.addEventListener("click", () => {
