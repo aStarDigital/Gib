@@ -1,0 +1,6 @@
+[submodule "tigerbeetle"]
+	path = tigerbeetle
+	url = https://github.com/coilhq/tigerbeetle.git
+[submodule "rafiki"]
+	path = rafiki
+	url = https://github.com/interledger/rafiki.git
