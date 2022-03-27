@@ -1,3 +1,6 @@
+/*
+2022.03. Sunsetting firebase products. Code to be replaced with typescript. 
+
 const functions = require('firebase-functions');
 
 exports.pay = functions.https.onRequest((req, res) => {
@@ -7,3 +10,5 @@ exports.pay = functions.https.onRequest((req, res) => {
     console.log("Payment request ", req);
     res.status(200).send(); // Respond to  payment request.
 })
+
+*/
