@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Gib</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="manifest" href="/public/manifest.json">
+  <script>
+    const registerServiceWorker = async () => {
+      if ('serviceWorker' in navigator) {
+        try {
+
+          navigator.serviceWorker.register(
+            '/public/service-worker.js',
+            {
+              scope: '/public/',
+            }
+          );
+
+          const registration = await navigator.serviceWorker.ready;
+
+          if (registration.installing) {
+            console.log('Service worker installing');
+          } else if (registration.waiting) {
+            console.log('Service worker installed');
+          } else if (registration.active) {
+            console.log('Service worker active');
+          }
+
+          if (!registration.paymentManager) {
+            return;
+          }
+
+          await registration.paymentManager.instruments.set(
+            // Payment instrument key
+            'gib_payment',
+            // Payment instrument details
+            {
+              // This parameter will be ignored in Chrome
+              name: 'Payment Handler Example',
+              // This parameter will be used to match against
+              // the PaymentRequest.
+              method: 'http://localhost:4000/public',
+            }
+          );
+
+        } catch (error) {
+          console.error(`Registration failed with ${error}`);
+        }
+      }
+    };
+    registerServiceWorker()
+
+  </script>
+</head>
+
+<body>
+  <h1>Installing Service worker...</h1>
+</body>
+
+</html>

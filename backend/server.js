@@ -5,8 +5,13 @@ const models = require('./models')
 
 var jsonParser = bodyParser.json()
 
+
+
 const app = express();
 const port = 4000;
+
+app.use('/public', express.static('public'))
+
 
 app.use(bodyParser.urlencoded({extended: false}));
 

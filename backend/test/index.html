@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Charlie Site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <script>
+    async function doPaymentRequest() {
+      try {
+        const request = new PaymentRequest([{
+          supportedMethods: 'http://localhost:4000/public/'
+        }], {
+          total: {
+            label: 'total',
+            amount: {value: '10', currency: 'USD'}
+          }
+        });
+      } catch (err) {
+        // AbortError, SecurityError
+        console.error(err);
+      }
+    }
+    doPaymentRequest()
+
+  </script>
+</head>
+
+<body>
+  <h1>Charlie Site</h1>
+</body>
+
+</html>
