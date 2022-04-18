@@ -7,22 +7,35 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <script>
-    async function doPaymentRequest() {
-      try {
-        const request = new PaymentRequest([{
-          supportedMethods: 'http://localhost:4000/public/'
-        }], {
-          total: {
-            label: 'total',
-            amount: {value: '10', currency: 'USD'}
-          }
-        });
-      } catch (err) {
-        // AbortError, SecurityError
-        console.error(err);
-      }
+    var supportedInstruments = [{
+      supportedMethods: 'http://localhost:4000/public'
+    }];
+
+    var details = {
+      total: {label: 'Donation', amount: {currency: 'USD', value: '65.00'}},
+      displayItems: [
+        {
+          label: 'Original donation amount',
+          amount: {currency: 'USD', value: '65.00'}
+        }
+      ],
+    };
+
+    var options = {requestShipping: true};
+
+    try {
+      var request = new PaymentRequest(supportedInstruments, details, options);
+      // Add event listeners here.
+      // Call show() to trigger the browser's payment flow.
+      //request.show().then(function (instrumentResponse) {
+      // Do something with the response from the UI.
+      //})
+      //.catch(function (err) {
+      // Do something with the error from request.show().
+      //});
+    } catch (e) {
+      // Catch any other errors.
     }
-    doPaymentRequest()
 
   </script>
 </head>

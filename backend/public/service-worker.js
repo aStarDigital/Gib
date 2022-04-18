@@ -32,30 +32,9 @@ class PromiseResolver {
 self.addEventListener('paymentrequest', async e => {
   console.log("received payment request")
   console.log(e.methodData)
-  //if (payment_request_event) {
-  // If there's an ongoing payment transaction, reject it.
-  //resolver.reject();
-  //}
-  // Preserve the event for future use
-  //payment_request_event = e;
+})
 
-  // Retain a promise for future resolution
-  // Polyfill for PromiseResolver is provided below.
-  //resolver = new PromiseResolver();
-
-  // Pass a promise that resolves when payment is done.
-  //e.respondWith(resolver.promise);
-  // Open the checkout page.
-  //try {
-  //// Open the window and preserve the client
-  //client = await e.openWindow(checkoutURL);
-  //if (!client) {
-  //// Reject if the window fails to open
-  //throw 'Failed to open window';
-  //}
-  //} catch (err) {
-  //// Reject the promise on failure
-  //resolver.reject(err);
-  //};
-
+self.addEventListener('canmakepayment', async e => {
+  console.log('can make panemtn function called')
+  console.log(e)
 })
