@@ -22,13 +22,15 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.post('/gib/link/', jsonParser, async (req, res, next) => {
+  console.log('req.body');
+  console.log(req.body);
   try {
     const link = await models.Link.create({
       linkUrl: req.body.linkUrl,
       userId: req.body.userId
     })
     res.json({
-      redemptionUrl: `localhost:4000/gib/link/${link.id}/redeem/`
+      redemptionUrl: `localhost:4000/gib/link/${link.id}/redeem.html`
     })
 
   } catch (err) {
@@ -41,7 +43,7 @@ app.get('/gib/link/:linkId/redeem.html', async (req, res, next) => {
   try {
     const link = await models.Link.findByPk(req.params.linkId)
     const data = {
-      linkUrl: "https://tyleralt.com"
+      linkUrl: link.linkUrl
     }
     const options = {}
     ejs.renderFile("templates/redirect.html", data, options, function (err, str) {

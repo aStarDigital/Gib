@@ -21,18 +21,18 @@
       ],
     };
 
-    var options = {requestShipping: true};
+    var options = {requestShipping: false};
 
     try {
       var request = new PaymentRequest(supportedInstruments, details, options);
       // Add event listeners here.
       // Call show() to trigger the browser's payment flow.
-      //request.show().then(function (instrumentResponse) {
-      // Do something with the response from the UI.
-      //})
-      //.catch(function (err) {
-      // Do something with the error from request.show().
-      //});
+      request.show().then(function (instrumentResponse) {
+        // Do something with the response from the UI.
+      })
+        .catch(function (err) {
+          // Do something with the error from request.show().
+        });
     } catch (e) {
       // Catch any other errors.
     }
