@@ -54,6 +54,7 @@ app.get('/gib/link/:linkId/redeem.html', async (req, res, next) => {
    * @param linkId the link id generated though /gib/link/ endpoint
    * @returns an html displaying a page that installs a service worker and links to the appropriate
    * page
+   * TODO: We should add a backend stored hash parameter so users can't try random ints for linkId
    */
   try {
     const link = await models.Link.findByPk(req.params.linkId)
