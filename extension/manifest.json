@@ -15,5 +15,8 @@
     "background": {
         "service_worker": "app.js"
     },
-    "permissions": ["tabs"]
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ]
 }
