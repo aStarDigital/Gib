@@ -1,0 +1,16 @@
+{
+    "name": "Pay with Gib",
+    "short_name": "gibpay",
+    "description": "This is an example of the Payment Handler API.",
+    "icons": [],
+    "serviceworker": {
+        "src": "/public/service-worker.js",
+        "scope": "/",
+        "use_cache": false
+    },
+    "start_url": "/public/",
+    "display": "standalone",
+    "theme_color": "#3f51b5",
+    "background_color": "#3f51b5",
+    "related_applications": []
+}

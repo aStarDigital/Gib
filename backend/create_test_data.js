@@ -1,10 +1,8 @@
 const models = require('./models')
 
-async function createTestData(){
-  const user = await models.User.create({});
+async function createTestData() {
   const link = await models.Link.create({
     linkUrl: "https://google.com",
-    userId: user.id
   });
 }
 

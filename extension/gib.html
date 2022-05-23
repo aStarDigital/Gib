@@ -1,17 +1,44 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Gib</title>
-        <link rel="manifest" href="manifest.json">
-        <link rel="stylesheet" href="gib.css" type="text/css">
-    </head>
-    <body>
-        <h1>Gib Extension Popup</h1>
-        <button id="linkGenerate">Generate a link</button>
-        <br>
-        <br>
-        <input id="linkInput" type="text">
-        <button id="linkSubmit">Open link</button>
-        <script src="gib.js"></script>
-    </body>
+
+
+<head>
+  <title>Gib</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="gib.css" type="text/css">
+  <link rel="stylesheet" href="bulma.css" type="text/css">
+  <script src="jquery-3.6.0.js"></script>
+  <script src="bulma.css"></script>
+</head>
+
+<body class="p-3" style="width:25rem">
+  <div class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="title is-2">Gib</p>
+        <p class="mt-2 subtitle">&lpar;&gt;&#65377;&#9685;&#8255;&#9685;&#65377;&rpar;&gt;&#128179;</p>
+        <p class="mt-6">
+          <button class="px-6 button is-primary" id="linkGenerate">Generate a link</button>
+        </p>
+        <div id="gibLinkSection" hidden>
+          <p class="mt-6 px-4" style="overflow-wrap: anywhere;">
+            <span id="originalLink"></span>
+          </p>
+          <p class="mt-1 px-4 has-text-info" style="overflow-wrap: anywhere;">
+            can be shared with
+          </p>
+          <p class="mt-1 px-4" style="overflow-wrap: anywhere;">
+            <span id="gibLink"></span>
+          </p>
+          <p class="mt-3">
+            <button class="button is-light" id="copyLink">copy</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="gib.js"></script>
+</body>
+</body>
+
 </html>
