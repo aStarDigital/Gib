@@ -13,3 +13,6 @@ you can use the following enviroment variables to configure the server for produ
 ```GIB_REDEMPTION_BASE_URL``` set as the protocol domain and port of the gib backend server (eg. https://gib.com)
 ```GIB_POSTGRES_URI``` set as the URI of the postgres server. See
 https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING for details
+
+# Production Setup
+To setup production see the PRODUCTION.md document
