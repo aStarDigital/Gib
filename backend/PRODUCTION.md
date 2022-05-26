@@ -31,8 +31,14 @@ This file covers the needed steps to run the backend express server on productio
         GIB_REDEMPTION_BASE_URL=<current_server_url> \
         --add-host=host.docker.internal:host-gateway \
         -p 4000:<current_server_url> \
+        -d \
+        --name gibbackend_production \
         gibbackend
+```
 
-
+## Debugging
+- to get logs from the container run ```docker logs gibbackend_production```
+- to tail the logs run ```docker logs -f gibbackend_production ```
+- to see what containers are running run ```docker ps```
 
 
