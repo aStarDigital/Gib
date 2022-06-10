@@ -2,18 +2,19 @@ const models = require('./models')
 const enviroment = require('./environment')
 
 const express = require('express');
+//const reload = require('express-reload')
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const cors = require('cors');
 
-
-
+//var path = __dirname + '/templates/'
 var jsonParser = bodyParser.json()
 
 const app = express();
 const port = 4000;
 
 app.use('/public', express.static('public'))
+//app.user(reload(path))
 app.set('view engine', 'ejs');
 
 app.use(function (req, res, next) {
@@ -26,6 +27,46 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({
   extended: true
 }))
+
+app.get('/', (req, res, next) => {
+  try {
+    ejs.renderFile("templates/index.html", {}, {}, function (err, str) {
+      return res.send(str)
+    });
+  } catch (err) {
+    next(err)
+  }
+})
+
+app.get('/about', (req, res, next) => {
+  try {
+    ejs.renderFile("templates/about.html", {}, {}, function (err, str) {
+      return res.send(str)
+    });
+  } catch (err) {
+    next(err)
+  }
+})
+
+app.get('/demo', (req, res, next) => {
+  try {
+    ejs.renderFile("templates/demo.html", {}, {}, function (err, str) {
+      return res.send(str)
+    });
+  } catch (err) {
+    next(err)
+  }
+})
+
+app.get('/install', (req, res, next) => {
+  try {
+    ejs.renderFile("templates/install.html", {}, {}, function (err, str) {
+      return res.send(str)
+    });
+  } catch (err) {
+    next(err)
+  }
+})
 
 app.post('/gib/link/', jsonParser, async (req, res, next) => {
   /**
@@ -69,6 +110,7 @@ app.get('/gib/link/:linkId/redeem.html', async (req, res, next) => {
     next(err)
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Success! Your application is running on port ${port}.`);

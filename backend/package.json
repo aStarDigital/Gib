@@ -19,5 +19,8 @@
     "pug": "^3.0.2",
     "sequelize": "^6.18.0",
     "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "express-reload": "^1.2.0"
   }
 }
