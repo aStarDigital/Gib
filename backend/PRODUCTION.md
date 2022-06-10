@@ -30,7 +30,7 @@ This file covers the needed steps to run the backend express server on productio
         GIB_POSTGRES_URI=postgres://<postgres_username>:<postgres_password>@host.docker.internal:<postgres_port> \
         -e GIB_REDEMPTION_BASE_URL=<current_server_url> \
         --add-host=host.docker.internal:host-gateway \
-        -p 4000:<local port> \
+        -p <local port>:4000 \
         -d \
         --name gibbackend_production \
         gibbackend
