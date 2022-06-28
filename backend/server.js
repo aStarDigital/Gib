@@ -1,5 +1,6 @@
 const models = require('./models')
 const enviroment = require('./environment')
+const interledger = require('./interledger-api')
 
 const express = require('express');
 //const reload = require('express-reload')
@@ -68,6 +69,19 @@ app.get('/install', (req, res, next) => {
   }
 })
 
+
+const generateRandomString = (myLength) => {
+  const chars =
+    "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
+  const randomArray = Array.from(
+    {length: myLength},
+    (v, k) => chars[Math.floor(Math.random() * chars.length)]
+  );
+
+  const randomString = randomArray.join("");
+  return randomString;
+};
+
 app.post('/gib/link/', jsonParser, async (req, res, next) => {
   /**
    * Create a gib link for the supplied url and return a redemption url to send to someone
@@ -76,9 +90,21 @@ app.post('/gib/link/', jsonParser, async (req, res, next) => {
    * @returns json with a "redemptionUrl" field defined. Send this link to another user to redeem
    * the link through gib
    */
+
+  const linkAmount = req.body.linkAmount || 10
+
+  const fundsUsername = generateRandomString(10)
+  const fundsPassword = generateRandomString(20)
+  interledger.createUser(fundsUsername, fundsPassword)
+  interledger.transferFunds(enviroment.getInterledgerRsFundsUsername, enviroment.getInterledgerRsFundsPassword, fundsUsername, linkAmount)
+
+
+
   try {
     const link = await models.Link.create({
       linkUrl: req.body.linkUrl,
+      fundsAccountUsername: fundsUsername,
+      fundsAccountPassword: fundsPassword,
     })
     res.json({
       redemptionUrl: `${enviroment.getRedemptionBaseUrl()}/gib/link/${link.id}/redeem.html`
@@ -110,6 +136,23 @@ app.get('/gib/link/:linkId/redeem.html', async (req, res, next) => {
     next(err)
   }
 });
+
+app.post('/gib/link/:linkId/stream', async (req, res, next) => {
+  try {
+    const receiverAddress = req.body.receiverAddress
+    const link = await models.Link.findByPk(req.params.linkId)
+    interledger.transferFunds(
+      link.fundsAccountUsername,
+      receiverAddress,
+      l
+    )
+
+    return res.send("")
+  } catch (err) {
+    next(err)
+  }
+
+})
 
 
 app.listen(port, () => {
