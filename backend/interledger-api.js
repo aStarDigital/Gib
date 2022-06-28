@@ -2,7 +2,7 @@ const axios = require('axios');
 const enviroment = require('./environment')
 
 
-const createUser = async (username) => {
+const createUser = async (username, password) => {
   const url = enviroment.getInterledgerRsUrl()
   try {
     const resp = await axios.post(url + "/accounts",
@@ -10,6 +10,7 @@ const createUser = async (username) => {
         "username": username,
         "asset_scale": 9,
         "asset_code": "ABC",
+        "ilp_over_http_incoming_token": password,
       },
       {
         headers: {
@@ -57,16 +58,16 @@ const getUser = async (userName) => {
   }
 }
 
-const transferFunds = async (fromUser, receiver) => {
+const transferFunds = async (fromUser, password, receiver, amount) => {
   try {
     return await axios.post(enviroment.getInterledgerRsUrl() + "/accounts/" + fromUser + "/payments",
       {
         "receiver": receiver,
-        "source_amount": 1
+        "source_amount": amount
       },
       {
         headers: {
-          "authorization": 'Bearer ' + enviroment.getInterledgerRsAdminToken()
+          "authorization": 'Bearer ' + fromUser + ":" + password
         }
       }
     )
@@ -77,8 +78,15 @@ const transferFunds = async (fromUser, receiver) => {
 }
 
 const main = async () => {
-  let resp = await createUser('userthree')
+  let resp = await createUser('newuser3', 'newuser-password')
+  console.log(resp.status)
+  resp = await createUser('newuser4', 'newuser-password-2')
+  console.log(resp.status)
+  resp = await transferFunds('newuser3', 'newuser-password', 'http://localhost:7770/accounts/newuser4/spsp')
   console.log(resp)
+  //resp = await transferFunds('alice', 'alice-password', 'http://localhost:7770/accounts/bob/spsp')
+  //console.log(resp)
+
   //resp = await createUser('usertwo')
   //console.log(resp)
   //let resp = await transferFunds('userone', "localhost.usertwo")
@@ -89,5 +97,3 @@ const main = async () => {
   //console.log(userResp.data)
 }
 
-console.log('here')
-main()
