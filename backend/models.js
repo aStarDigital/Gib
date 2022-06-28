@@ -16,6 +16,12 @@ const Link = sequelize.define('Link', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  fundsAccountUsername: {
+    type: DataTypes.STRING,
+  },
+  fundsAccountPassword: {
+    type: DataTypes.STRING,
+  },
 }, {
 });
 
