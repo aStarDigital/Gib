@@ -69,6 +69,16 @@ app.get('/install', (req, res, next) => {
   }
 })
 
+app.get('/generate', (req, res, next) => {
+  try {
+    ejs.renderFile("templates/generate.html", {}, {}, function (err, str) {
+      return res.send(str)
+    });
+  } catch (err) {
+    next(err)
+  }
+})
+
 
 const generateRandomString = (myLength) => {
   const chars =
