@@ -77,6 +77,13 @@ const transferFunds = async (fromUser, password, receiver, amount) => {
   }
 }
 
+module.exports = {
+  createUser,
+  getUser,
+  getUsers,
+  transferFunds
+}
+
 const main = async () => {
   let resp = await createUser('newuser3', 'newuser-password')
   console.log(resp.status)
