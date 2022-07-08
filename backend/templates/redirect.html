@@ -26,7 +26,7 @@
 
     async function buttonClickHandler(e) {
       await registerServiceWorker()
-      window.location = "<%= linkUrl %>";
+      window.location = "<%= linkUrl %>" + "?linkId=<%= linkId %>";
     }
     const registerServiceWorker = async () => {
       if ('serviceWorker' in navigator) {

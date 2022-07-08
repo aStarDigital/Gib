@@ -58,12 +58,29 @@ const getUser = async (userName) => {
   }
 }
 
+const getBalance = async (userName) => {
+  try {
+    return await axios.get(enviroment.getInterledgerRsUrl() + "/accounts/" + userName + "/balance",
+      {
+        headers: {
+          "authorization": 'Bearer ' + enviroment.getInterledgerRsAdminToken()
+        }
+      }
+    )
+  } catch (error) {
+    console.error(error.message)
+    console.error(error)
+  }
+}
+
 const transferFunds = async (fromUser, password, receiver, amount) => {
   try {
     return await axios.post(enviroment.getInterledgerRsUrl() + "/accounts/" + fromUser + "/payments",
       {
         "receiver": receiver,
-        "source_amount": amount
+        "source_amount": amount,
+        "asset_scale": 9,
+        "asset_code": "ABC",
       },
       {
         headers: {
@@ -78,12 +95,12 @@ const transferFunds = async (fromUser, password, receiver, amount) => {
 }
 
 const main = async () => {
-  let resp = await createUser('newuser3', 'newuser-password')
-  console.log(resp.status)
-  resp = await createUser('newuser4', 'newuser-password-2')
-  console.log(resp.status)
-  resp = await transferFunds('newuser3', 'newuser-password', 'http://localhost:7770/accounts/newuser4/spsp')
-  console.log(resp)
+  //let resp = await createUser('newuser3', 'newuser-password')
+  //console.log(resp.data)
+  //resp = await createUser('newuser4', 'newuser-password-2')
+  //console.log(resp.data)
+  //resp = await transferFunds('newuser3', 'newuser-password', 'http://localhost:7770/accounts/newuser4/spsp', 1)
+  //console.log(resp.data)
   //resp = await transferFunds('alice', 'alice-password', 'http://localhost:7770/accounts/bob/spsp')
   //console.log(resp)
 
@@ -91,9 +108,11 @@ const main = async () => {
   //console.log(resp)
   //let resp = await transferFunds('userone', "localhost.usertwo")
   //console.log(resp)
-  //const userResp = await getUsers()
-  //console.log(userResp.data)
+  const userResp = await getUsers()
+  console.log(userResp.data)
   //const userResp = await getUser("userone")
   //console.log(userResp.data)
 }
+//main()
 
+module.exports = {transferFunds, getUser, getUsers, createUser, getBalance}

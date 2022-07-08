@@ -23,3 +23,27 @@ body {
 .info-section .product-name {
     font-size: 6em;
 }
+
+#premium-content {
+    font-size: 92px;
+}
+
+#premium-content {
+    /*font-family: 'Holtwood One SC';*/
+    font-style: normal;
+    font-weight: 400;
+    font-size: 92px;
+    line-height: 150px;
+    /* identical to box height */
+
+    letter-spacing: 0.07em;
+
+    background: linear-gradient(180deg, #FF7A00 0%, #FAFF00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+
+    border: 5px solid #000000;
+    transform: rotate(8deg);
+}

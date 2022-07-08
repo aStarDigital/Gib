@@ -29,6 +29,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }))
 
+function addressFromUsername(username) {
+  return "http://localhost:7770/accounts/" + username + "/spsp"
+}
+
 app.get('/', (req, res, next) => {
   try {
     ejs.renderFile("templates/index.html", {}, {}, function (err, str) {
@@ -105,12 +109,12 @@ app.post('/gib/link/', jsonParser, async (req, res, next) => {
 
   const fundsUsername = generateRandomString(10)
   const fundsPassword = generateRandomString(20)
-  interledger.createUser(fundsUsername, fundsPassword)
-  interledger.transferFunds(enviroment.getInterledgerRsFundsUsername, enviroment.getInterledgerRsFundsPassword, fundsUsername, linkAmount)
-
-
-
   try {
+    await interledger.createUser(fundsUsername, fundsPassword)
+    await interledger.transferFunds(enviroment.getInterledgerRsFundsUsername(), enviroment.getInterledgerRsFundsPassword(), addressFromUsername(fundsUsername), linkAmount)
+
+
+
     const link = await models.Link.create({
       linkUrl: req.body.linkUrl,
       fundsAccountUsername: fundsUsername,
@@ -136,7 +140,8 @@ app.get('/gib/link/:linkId/redeem.html', async (req, res, next) => {
   try {
     const link = await models.Link.findByPk(req.params.linkId)
     const data = {
-      linkUrl: link.linkUrl
+      linkUrl: link.linkUrl,
+      linkId: link.id
     }
     const options = {}
     ejs.renderFile("templates/redirect.html", data, options, function (err, str) {
@@ -147,14 +152,20 @@ app.get('/gib/link/:linkId/redeem.html', async (req, res, next) => {
   }
 });
 
-app.post('/gib/link/:linkId/stream', async (req, res, next) => {
+app.post('/gib/link/:linkId/stream', jsonParser, async (req, res, next) => {
   try {
-    const receiverAddress = req.body.receiverAddress
     const link = await models.Link.findByPk(req.params.linkId)
+    const balance = await interledger.getBalance(link.fundsAccountUsername)
+    if (balance.data.balance <= 0) {
+      res.sendStatus(400).send("Insufficient Funds")
+    }
+    console.log(balance)
+    const receiverAddress = req.body.receiverAddress
     interledger.transferFunds(
       link.fundsAccountUsername,
+      link.fundsAccountPassword,
       receiverAddress,
-      l
+      1
     )
 
     return res.send("")
