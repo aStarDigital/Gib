@@ -1,3 +1,15 @@
+// comment out this line for production
+const DEBUG = true
+
+function getGibUrl() {
+  if (DEBUG) {
+    return "http://127.0.0.1:4000"
+  } else {
+    return "https://gib.gives"
+  }
+}
+
+
 function usePaymentRequest() {
   var supportedInstruments = [{
     supportedMethods: 'http://localhost:4000/public'
@@ -45,10 +57,11 @@ function hideCover() {
   $("#premium-cover").attr("hidden", 'true')
 }
 
+
 async function streamPayment(linkId) {
   $.ajax({
     type: "POST",
-    url: "http://127.0.0.1:4000/gib/link/" + linkId + "/stream",
+    url: getGibUrl() + "/gib/link/" + linkId + "/stream",
     contentType: "application/json",
     data: JSON.stringify({
       receiverAddress: "http://localhost:7770/accounts/charlie/spsp"
