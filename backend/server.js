@@ -3,7 +3,6 @@ const enviroment = require('./environment')
 const interledger = require('./interledger-api')
 
 const express = require('express');
-//const reload = require('express-reload')
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const cors = require('cors');

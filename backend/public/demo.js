@@ -57,8 +57,13 @@ function hideCover() {
   $("#premium-cover").attr("hidden", 'true')
 }
 
+function showCover() {
+  $("#premium-cover").removeAttr("hidden")
+}
+
 
 async function streamPayment(linkId) {
+  console.log('streaming')
   $.ajax({
     type: "POST",
     url: getGibUrl() + "/gib/link/" + linkId + "/stream",
@@ -68,16 +73,22 @@ async function streamPayment(linkId) {
     }),
   }).done(function (data) {
     hideCover();
-
   }).fail(function () {
+    showCover()
   }).always(function () {
   });
+}
+
+function keepStreamingPayments(linkId) {
+  streamPayment(linkId)
+  setTimeout(keepStreamingPayments(linkId), 1000);
 }
 
 $(document).ready(function () {
   const linkId = getUrlParameter("linkId")
   if (linkId) {
     streamPayment(linkId)
+    const interval = setInterval(function () {streamPayment(linkId)}, 1000);
   }
 });
 
