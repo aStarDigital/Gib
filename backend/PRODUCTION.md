@@ -24,7 +24,7 @@ This file covers the needed steps to run the backend express server on productio
     - <postgres_username> : The username for the postgresql server
     - <current_server_url> : This is the address of the machine. With DNS will look something like 
       ```gib.gives```. Without DNS this will look something like ```45.79.159.178```
-5. Run the docker container
+5. Run the backend docker container
 ```
     docker run -e \
         GIB_POSTGRES_URI=postgres://<postgres_username>:<postgres_password>@host.docker.internal:<postgres_port> \
@@ -35,6 +35,50 @@ This file covers the needed steps to run the backend express server on productio
         --name gibbackend_production \
         gibbackend
 ```
+6. Setup Redis
+```
+docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
+```
+7. install ilp-cli tools
+```
+ curl -L https://github.com/interledger-rs/interledger-rs/releases/download/ilp-cli-latest/ilp-cli-x86_64-unknown-linux-musl.tar.gz | tar xzv
+ ```
+8. install ilp-node tools
+```
+    curl -L https://github.com/interledger-rs/interledger-rs/releases/download/ilp-node-latest/ilp-node-x86_64-unknown-linux-musl.tar.gz | tar xzv
+```
+
+9. Setup interledger rs instance
+```
+ ./ilp-node \
+--ilp_address example.node_a \
+--secret_seed 8852500887504328225458511465394229327394647958135038836332350604 \
+--admin_auth_token admin-a \
+--redis_url redis://127.0.0.1:6379/ \
+--http_bind_address 127.0.0.1:7770 \
+--settlement_api_bind_address 127.0.0.1:7771 &
+```
+
+
+10. setup  accounts for alice
+```
+./ilp-cli \
+accounts create alice \
+--asset-code ABC \
+--auth admin-a \
+--asset-scale 9 \
+--ilp-over-http-incoming-token alice-password
+```
+
+11. setup account for charlie
+```
+./ilp-cli accounts create charlie \
+    --asset-code ABC \
+    --auth admin-a \
+    --asset-scale 9 \
+    --ilp-over-http-incoming-token charlie-password
+```
+
 
 ## Debugging
 - to get logs from the container run ```docker logs gibbackend_production```
@@ -43,9 +87,8 @@ This file covers the needed steps to run the backend express server on productio
 
 ## Interledger RS setup
 
-- setup interledger-rs
-    ```
-    mkdir -p ~/.interledger/bin
+
+
 
 # Also write this line in .bash_profile etc if needed
 - download interledger-rs
