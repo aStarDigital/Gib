@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "ejs": "^3.1.7",
@@ -19,5 +20,8 @@
     "pug": "^3.0.2",
     "sequelize": "^6.18.0",
     "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "express-reload": "^1.2.0"
   }
 }

@@ -28,9 +28,9 @@ This file covers the needed steps to run the backend express server on productio
 ```
     docker run -e \
         GIB_POSTGRES_URI=postgres://<postgres_username>:<postgres_password>@host.docker.internal:<postgres_port> \
-        GIB_REDEMPTION_BASE_URL=<current_server_url> \
+        -e GIB_REDEMPTION_BASE_URL=<current_server_url> \
         --add-host=host.docker.internal:host-gateway \
-        -p 4000:<current_server_url> \
+        -p <local port>:4000 \
         -d \
         --name gibbackend_production \
         gibbackend
@@ -41,4 +41,38 @@ This file covers the needed steps to run the backend express server on productio
 - to tail the logs run ```docker logs -f gibbackend_production ```
 - to see what containers are running run ```docker ps```
 
+## Interledger RS setup
+
+- setup interledger-rs
+    ```
+    mkdir -p ~/.interledger/bin
+
+# Also write this line in .bash_profile etc if needed
+- download interledger-rs
+
+```
+pushd ~/.interledger/bin &>/dev/null
+
+# install ilp-node
+if [ ! -e "ilp-node" ]; then
+    curl -L https://github.com/interledger-rs/interledger-rs/releases/download/ilp-node-latest/ilp-node-x86_64-apple-darwin.tar.gz | tar xzv -
+fi
+
+# install ilp-cli
+if [ ! -e "ilp-cli" ]; then
+    curl -L https://github.com/interledger-rs/interledger-rs/releases/download/ilp-cli-latest/ilp-cli-x86_64-apple-darwin.tar.gz | tar xzv -
+fi
+
+popd &>/dev/null
+
+```
+
+- launch the node and rembember the <auth token>
+```
+./ilp-node \
+--secret_seed 8852500887504328225458511465394229327394647958135038836332350604 \
+--admin_auth_token admin-a \
+--redis_url redis://127.0.0.1:6379/  \
+--http_bind_address 127.0.0.1:7770
+```
 

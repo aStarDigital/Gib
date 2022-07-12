@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials_head'); %>
+    <script src="public/jquery-3.6.0.js"></script>
+    <script src="public/generate.js"></script>
+</head>
+
+<body>
+  <main>
+    <%- include('./partials_header'); %>
+      <div class=" mt-5">
+        <div class="container-lg text-center">
+          <h1 class="h1 mb-3 " style="text-decoration: underline; font-size:4rem;">
+            Generate a Gib Link
+          </h1>
+        </div>
+      </div>
+
+      <div class=" mt-5">
+        <div class="container-lg text-center">
+          <h2 class="h1 mb-3 fs-4">
+            You can use this page to generate a link for the demo page. For the full experience, try <a
+              style="text-decoration: underline">Installing the
+              Demo Extension</a>
+            .
+          </h2>
+        </div>
+        <div style="height:2rem"></div>
+      </div>
+
+      <div class=" mt-3">
+        <div class="container-lg text-center">
+          <h1 class="h1 mb-1 fs-3">
+            &lpar;&gt;&#65377;&#9685;&#8255;&#9685;&#65377;&rpar;&gt;
+            <span style="font-size:4rem">&#128179;</span>
+            &lt;&lpar;&#65377;&#9685;&#8255;&#9685;&#65377;&lt;&rpar;
+          </h1>
+        </div>
+        <div style="height:2rem"></div>
+      </div>
+
+      <div class=" mt-3">
+        <div class="text-center">
+          <div class="fs-5 container" style="width: 50%">
+            <div class="row my-3">
+              <div class="col">
+                Generate link for:
+              </div>
+              <div class="col">
+                <input id="inputUrl" type="text"></input>
+              </div>
+            </div>
+
+            <div class=" row">
+              <div class="col">
+                Access time to share:
+              </div>
+              <div class="col">
+                <input type="number" value="5"></input>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class=" mt-3">
+        <div class="container-lg text-center">
+          <button id="linkGenerate" class="btn btn-lg btn-success" type="submit">Generate Link</button>
+        </div>
+        <div style="height:2rem"></div>
+      </div>
+
+      <div id="gibLinkSection" class="my-4" hidden>
+        <div class="container-lg text-center fs-3">
+          Copy and share the link below:
+        </div>
+        <div class="container-lg text-center mt-3 fs-2">
+          <div id="gibLink"></div>
+        </div>
+      </div>
+
+      <%- include('./partials_footer'); %>
+  </main>
+
+</body>
+
+</html>
