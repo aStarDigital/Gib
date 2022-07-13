@@ -14,8 +14,9 @@ This file covers the needed steps to run the backend express server on productio
 
 1. Checkout the current head branch of [Gib](https://github.com/aStarDigital/Gib)
 2. cd into the "backend" dir with ```cd backend``` . 
-3. Build the docker image and assign it a name with ```docker build --tag gibbackend ./```
-4. Gather all of the variables you will need to run the container
+3. Change the DEBUG constant in /public/demo.js and /public/generate.js to false
+4. Build the docker image and assign it a name with ```docker build --tag gibbackend ./```
+5. Gather all of the variables you will need to run the container
     in this context we need to know:
     - <local port> : This is the port the server will attach to on localhost. The ssl/https server
         should route to this <local port> after handling ssl encryption.
@@ -24,31 +25,32 @@ This file covers the needed steps to run the backend express server on productio
     - <postgres_username> : The username for the postgresql server
     - <current_server_url> : This is the address of the machine. With DNS will look something like 
       ```gib.gives```. Without DNS this will look something like ```45.79.159.178```
-5. Run the backend docker container
+6. Run the backend docker container
 ```
     docker run -e \
         GIB_POSTGRES_URI=postgres://<postgres_username>:<postgres_password>@host.docker.internal:<postgres_port> \
         -e GIB_REDEMPTION_BASE_URL=<current_server_url> \
+        -e INTERLEDGER_RS_URL=http://host.docker.internal:7770 \
         --add-host=host.docker.internal:host-gateway \
         -p <local port>:4000 \
         -d \
         --name gibbackend_production \
         gibbackend
 ```
-6. Setup Redis
+7. Setup Redis
 ```
 docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:latest
 ```
-7. install ilp-cli tools
+8. install ilp-cli tools
 ```
  curl -L https://github.com/interledger-rs/interledger-rs/releases/download/ilp-cli-latest/ilp-cli-x86_64-unknown-linux-musl.tar.gz | tar xzv
  ```
-8. install ilp-node tools
+9. install ilp-node tools
 ```
     curl -L https://github.com/interledger-rs/interledger-rs/releases/download/ilp-node-latest/ilp-node-x86_64-unknown-linux-musl.tar.gz | tar xzv
 ```
 
-9. Setup interledger rs instance
+10. Setup interledger rs instance:
 ```
  ./ilp-node \
 --ilp_address example.node_a \
@@ -58,9 +60,11 @@ docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server:la
 --http_bind_address 127.0.0.1:7770 \
 --settlement_api_bind_address 127.0.0.1:7771 &
 ```
+then run ```ps``` to find the pid of the process. Finally run ```disown <pid>```
 
 
-10. setup  accounts for alice
+
+11. setup  accounts for alice
 ```
 ./ilp-cli \
 accounts create alice \
@@ -68,9 +72,10 @@ accounts create alice \
 --auth admin-a \
 --asset-scale 9 \
 --ilp-over-http-incoming-token alice-password
+
 ```
 
-11. setup account for charlie
+12. setup account for charlie
 ```
 ./ilp-cli accounts create charlie \
     --asset-code ABC \
