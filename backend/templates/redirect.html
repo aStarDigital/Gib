@@ -17,6 +17,8 @@
 
   <link href="/public/redirect.css" rel="stylesheet">
   <script>
+
+    window.location = "<%= linkUrl %>" + "?linkId=<%= linkId %>";
     document.addEventListener("DOMContentLoaded", () => {
       var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
       var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
