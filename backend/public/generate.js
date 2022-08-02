@@ -1,3 +1,14 @@
+// comment out this line for production
+const DEBUG = true
+
+function getGibUrl() {
+  if (DEBUG) {
+    return "http://127.0.0.1:4000"
+  } else {
+    return "https://gib.gives"
+  }
+}
+
 const USER_ID = "8d3c7d79-d4b6-467f-a8f6-76292b368bdd"
 
 function displayUrls(originalUrl, gibUrl) {
@@ -7,16 +18,16 @@ function displayUrls(originalUrl, gibUrl) {
 }
 
 
-async function generateGibUrl(url) {
+async function generateGibUrl(url, linkAmount) {
   $.ajax({
     type: "POST",
-    url: "http://127.0.0.1:4000/gib/link/",
+    url: getGibUrl() + "/gib/link/",
     contentType: "application/json",
     dataType: "json",
     data: JSON.stringify({
       userId: USER_ID,
-      linkUrl: url
-
+      linkUrl: url,
+      linkAmount: linkAmount
     }),
     success: function (response) {
       displayUrls(url, response.redemptionUrl)
@@ -31,6 +42,7 @@ async function generateGibUrl(url) {
 $(document).ready(function () {
   $("#linkGenerate").click(async function () {
     const currentUrl = ($("#inputUrl").val())
-    await generateGibUrl(currentUrl)
+    const inputLinkAmount = ($("#inputLinkAmount").val())
+    await generateGibUrl(currentUrl, inputLinkAmount)
   });
 });
