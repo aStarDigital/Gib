@@ -37,12 +37,13 @@
 
 #premium-content { 
       position: relative;
+      height: 83vh;
 }
 
 #premium-cover { 
       position: absolute;
-      top: 200px;
-      height: 700px;
+      top: 30vh;
+      height: 54vh;
       width: 100%;
       background-color: #BFE0FF;
       font-family: 'Gothic A1';
@@ -50,4 +51,17 @@
 }
 #paywall-text{
     color: #66B6FF;
+}
+
+.footer-container {
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+}
+
+.paywall-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
