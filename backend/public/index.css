@@ -1,67 +1,68 @@
 .nav-item>a:hover {
-    background-color: #BFE0FF;
+  background-color: #BFE0FF;
 }
 
 #premium-container {
-     position: relative;
+  position: relative;
 }
 #premium-header {
-    transform: rotate(8deg);
+  transform: rotate(8deg);
 }
 
 #premium-content-label {
-    /*position: absolute;*/
-    width: 1268px;
-    height: 150px;
-    left: 108.88px;
-    top: 270px;
+  /*position: absolute;*/
+  width: 1268px;
+  height: 150px;
+  left: 108.88px;
+  top: 270px;
 
-    font-family: 'Holtwood One SC';
-    font-style: normal;
-    font-weight: 200px;
-    font-size: 90px;
-    line-height: 150px;
-    /* identical to box height */
+  font-family: 'Holtwood One SC';
+  font-style: normal;
+  font-weight: 200px;
+  font-size: 90px;
+  line-height: 150px;
+  /* identical to box height */
 
-    letter-spacing: 0.07em;
+  letter-spacing: 0.07em;
 
-    background: linear-gradient(180deg, #FF7A00 0%, #FAFF00 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+  background: linear-gradient(180deg, #FF7A00 0%, #FAFF00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: #000000;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: #000000;
 }
 
 #premium-content { 
-      position: relative;
-      height: 83vh;
+  position: relative;
+  height: 83vh;
 }
 
 #premium-cover { 
-      position: absolute;
-      top: 30vh;
-      height: 54vh;
-      width: 100%;
-      background-color: #BFE0FF;
-      font-family: 'Gothic A1';
-    font-style: normal;
+  position: absolute;
+  top: 30vh;
+  height: 54vh;
+  width: 100%;
+  background-color: #BFE0FF;
+  font-family: 'Gothic A1';
+  font-style: normal;
 }
+
 #paywall-text{
-    color: #66B6FF;
+  color: #66B6FF;
 }
 
 .footer-container {
-    position: absolute;
-    width: 100vw;
-    bottom: 0;
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
 }
 
 .paywall-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
