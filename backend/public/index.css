@@ -1,3 +1,16 @@
+.page-logo {
+  font-size: 5rem;
+  font-family: inriaRegular;
+}
+
+.nav {
+  align-items: center;
+}
+
+.nav-item a {
+  font-family: inriaBold;
+}
+
 .nav-item>a:hover {
   background-color: #BFE0FF;
 }
@@ -13,13 +26,19 @@
 }
 
 .gib-logo {
-  animation-delay: 1s;
-  margin-bottom: 2rem;
-  padding-top: 2rem;
+  animation-delay: 1500ms;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
 }
 
 .gib-logo img {
   width: 750px;
+}
+
+.overview-video {
+  margin-top: 2rem;
+  animation-delay: 2500ms;
+  box-shadow: #00000044 1px 1px 10px;
 }
 
 #premium-container {
