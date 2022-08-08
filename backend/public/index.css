@@ -2,6 +2,26 @@
   background-color: #BFE0FF;
 }
 
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 2s ease;
+  animation-fill-mode: forwards;
+}
+
+.intro-text {
+  animation-delay: 500ms;
+}
+
+.gib-logo {
+  animation-delay: 1s;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.gib-logo img {
+  width: 750px;
+}
+
 #premium-container {
   position: relative;
 }
@@ -65,4 +85,13 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
 }
