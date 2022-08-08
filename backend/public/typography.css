@@ -1,0 +1,41 @@
+@font-face {
+  font-family: robotoBold;
+  src: url(fonts/Roboto-Bold.ttf);
+}
+@font-face {
+  font-family: robotoItalic;
+  src: url(fonts/Roboto-Italic.ttf);
+}
+@font-face {
+  font-family: robotoMedium;
+  src: url(fonts/Roboto-Medium.ttf);
+}
+@font-face {
+  font-family: robotoRegular;
+  src: url(fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: inriaBold;
+  src: url(fonts/InriaSans-Bold.ttf);
+}
+@font-face {
+  font-family: inriaItalic;
+  src: url(fonts/InriaSans-Italic.ttf);
+}
+@font-face {
+  font-family: inriaLight;
+  src: url(fonts/InriaSans-Light.ttf);
+}
+@font-face {
+  font-family: inriaRegular;
+  src: url(fonts/InriaSans-Regular.ttf);
+}
+
+h1, h2, h3 {
+  font-family: inriaBold;
+}
+
+p, a {
+  font-family: robotoRegular;
+}

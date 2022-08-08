@@ -14,69 +14,68 @@
 <body>
   <main>
     <%- include('./partials_header'); %>
-      <div id="premium-container">
-        <div id="premium-content">
-          <div class=" mt-5">
-            <div id="premium-header" class="pt-4">
-              <div class="container-lg text-center">
-                <span class="h1 " style="font-size:3rem;">
-                  (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-                </span>
-              </div>
-              <div class="container-lg text-center">
-                <span id="premium-content-label">Premium Content !</span>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="my-5 pt-5 container text-center" style="width: 60rem">
-              <div class="text-start">
-                <p>
-                  Our project, Gib, was inspired by the financial inclusivity that is core to the Web Monetization
-                  philosophy and its revolutionary architecture. Gib is designed to use the Web Monetization standard
-                  and
-                  the Interledger Protocol in a simple component - facilitating the sharing of premium web content.
-                  Think
-                  of
-                  Gib like a gift card for the monetized web.
-                </p>
-                <p>
-                  To check out websites currently accepting web monetization, click this link:
-                  <a style="white-space: nowrap;" href="https://coil.com/discover">https://coil.com/discover</a>.
-                </p>
-                <p>
-                    If you’d like to monetize your
-                  website, check out this guide from Coil: <a style="white-space: nowrap;"
-                    href="https://coil.com/creator/how-to-monetize">https://coil.com/creator/how-to-monetize</a>
-
-
-
-                </p>
-              </div>
-
-
-
-            </div>
-          </div>
-        </div>
-        <div id="premium-cover">
-          <div class="pt-4">
+    <div id="premium-container">
+      <div id="premium-content">
+        <div class=" mt-5">
+          <div id="premium-header" class="pt-4">
             <div class="container-lg text-center">
-              <div style="font-size: 8rem">
-                🔒
-              </div>
-              <span id="paywall-text" class="h1 " style="font-size:3rem;">
-                Oh no, you've hit a paywall!
+              <span class="h1 " style="font-size:3rem;">
+                (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
               </span>
-              <div>
-                <span style="font-size:2.2rem">(-_-)</span>
-              </div>
+            </div>
+            <div class="container-lg text-center">
+              <span id="premium-content-label">Premium Content !</span>
             </div>
           </div>
         </div>
-        <%- include('./partials_footer'); %>
-  </main>
 
+        <div>
+          <div class="my-5 pt-5 container text-center" style="width: 60rem">
+            <div class="text-start">
+              <p>
+                Our project, Gib, was inspired by the financial inclusivity that is core to the Web Monetization
+                philosophy and its revolutionary architecture. Gib is designed to use the Web Monetization standard
+                and
+                the Interledger Protocol in a simple component - facilitating the sharing of premium web content.
+                Think
+                of
+                Gib like a gift card for the monetized web.
+              </p>
+              <p>
+                To check out websites currently accepting web monetization, click this link:
+                <a style="white-space: nowrap;" href="https://coil.com/discover">https://coil.com/discover</a>.
+              </p>
+              <p>
+                If you'd like to monetize your
+                website, check out this guide from Coil: <a style="white-space: nowrap;"
+                  href="https://coil.com/creator/how-to-monetize">https://coil.com/creator/how-to-monetize</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-container">
+          <%- include('./partials_footer'); %>
+        </div>
+      </div>
+
+      <div id="premium-cover">
+        <div class="paywall-content">
+          <div class="container-lg text-center">
+
+            <div style="font-size: 8rem">
+              <img src="public/oops-semi-bold.svg" alt="A disappointed kaomoji character." class="paywall-oops">
+            </div>
+
+            <span id="paywall-text" class="h1" style="font-size:3rem;">
+              Oh no, you've hit a paywall!
+            </span>
+            <p class="paywall-hint">Try visiting the <a href="/generate">Generate Link</a> tab to unlock this content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
