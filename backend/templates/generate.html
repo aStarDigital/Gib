@@ -8,11 +8,13 @@
 </head>
 
 <body>
-  <main>
+  <main class="generate-main">
     <%- include('./partials_header'); %>
+    <div class="generate-content">
+
       <div class=" mt-5">
         <div class="container-lg text-center">
-          <h1 class="h1 mb-3 " style="text-decoration: underline; font-size:4rem;">
+          <h1 class="h1 mb-3 " style="font-size:4rem;">
             Generate a Gib Link
           </h1>
         </div>
@@ -73,8 +75,9 @@
           <div id="gibLink"></div>
         </div>
       </div>
+    </div>
 
-      <div class="footer-container">
+      <div class="footer-container generate-footer">
         <%- include('./partials_footer'); %>
       </div>
   </main>

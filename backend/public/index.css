@@ -1,6 +1,8 @@
 .page-logo {
-  font-size: 5rem;
-  font-family: inriaRegular;
+  font-size: 6rem;
+  font-family: inriaBold;
+  color: #BAD9C2;
+  text-shadow: #00000022 1px 1px 3px;
 }
 
 .nav {
@@ -12,7 +14,7 @@
 }
 
 .nav-item>a:hover {
-  background-color: #BFE0FF;
+  background-color: #BAD9C2;
 }
 
 .fade-in {
@@ -23,6 +25,7 @@
 
 .intro-text {
   animation-delay: 500ms;
+  margin: 4rem 0;
 }
 
 .gib-logo {
@@ -37,7 +40,7 @@
 
 .overview-video {
   margin-top: 2rem;
-  animation-delay: 2500ms;
+  animation-delay: 1500ms;
   box-shadow: #00000044 1px 1px 10px;
 }
 
@@ -46,6 +49,7 @@
 }
 #premium-header {
   transform: rotate(8deg);
+  width: 100%;
 }
 
 #premium-content-label {
@@ -79,24 +83,51 @@
   height: 83vh;
 }
 
+#premium-content p {
+  font-size: 1.2rem;
+}
+
 #premium-cover { 
   position: absolute;
-  top: 30vh;
-  height: 54vh;
+  top: 25vh;
+  height: 59vh;
   width: 100%;
   background-color: #BFE0FF;
   font-family: 'Gothic A1';
   font-style: normal;
+  box-shadow: #00000022 0px -2px 10px;
 }
 
-#paywall-text{
-  color: #66B6FF;
+#paywall-text {
+  font-family: robotoRegular;
+  color: #000000;
+}
+
+.paywall-oops {
+  width: 200px;
+  margin-bottom: 5rem;
+}
+
+.paywall-hint {
+  font-size: 1.5rem;
+  margin-top: 1rem;
 }
 
 .footer-container {
   position: absolute;
   width: 100vw;
   bottom: 0;
+}
+
+.generate-footer.footer-container {
+  position: relative;
+  margin-top: auto;
+}
+
+.generate-main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .paywall-content {
