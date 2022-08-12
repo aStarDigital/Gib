@@ -92,6 +92,26 @@ app.get('/feedback', (req, res, next) => {
   }
 })
 
+app.get('/terms', (req, res, next) => {
+  try {
+    ejs.renderFile("templates/terms.html", {}, {}, function (err, str) {
+      return res.send(str)
+    });
+  } catch (err) {
+    next(err)
+  }
+})
+
+app.get('/privacy', (req, res, next) => {
+  try {
+    ejs.renderFile("templates/privacy.html", {}, {}, function (err, str) {
+      return res.send(str)
+    });
+  } catch (err) {
+    next(err)
+  }
+})
+
 
 const generateRandomString = (myLength) => {
   const chars =

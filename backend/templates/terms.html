@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials_head'); %>
+</head>
+
+<body>
+  <main>
+    <%- include('./partials_header'); %>
+    <div class="bg-light my-2">
+      <div class="container-lg text-center pt-5">
+        <h1 class="intro-text fade-in mb-3">
+          A gift card for the Internet
+        </h1>
+        <div class="gib-logo fade-in">
+          <img src="public/gib-logo.svg" alt="The Gib project logo of two kaomoji characters sharing a gift card.">
+        </div>
+        <video class="overview-video fade-in" width="1000" src="public/gib-overview.mp4" controls preload="metadata"></video>
+      </div>
+
+      <div style="height:2rem"></div>
+    </div>
+
+    <div style="height:7rem"></div>
+
+    <div class="container-lg">
+      <div class="py-3">
+        <h2 class="h1 fs-1">Hello there!</h2>
+        <p class="fs-4"> This website serves as a demo of Gib. Eventually, you will be able to create a web monetized
+          link for any site! However, currently we've created a mock page (the Demo tab) which represents a website
+          with premium content that is hidden behind a paywall. By following the below steps, you will be able to
+          generate and share Gib links that provide access to the premium content! Note: In our next iteration, you
+          will be able to generate links using a browser extension.</p>
+      </div>
+
+      <div class="py-3">
+        <h2 class="h2 fs-3">Step 1</h2>
+        <p class="fs-4">Click the Demo tab. You'll see a paywall blocking the premium content on the page.</p>
+      </div>
+      <div class="py-3">
+        <h2 class="h2 fs-3">Step 2</h2>
+        <p class="fs-4">Click the Gib Link tab (for the Demo, we've hard coded the example URL). </p>
+      </div>
+      <div class="py-3">
+        <h2 class="h2 fs-3">Step 3</h2>
+        <p class="fs-4">Enter the amount of time (in seconds) that you want to be able to access the premium content
+          for.</p>
+      </div>
+      <div class="py-3">
+        <h2 class="h2 fs-3">Step 4</h2>
+        <p class="fs-4">Click the “Generate Link” button.</p>
+      </div>
+      <div class="py-3">
+        <h2 class="h2 fs-3">Step 5</h2>
+        <p class="fs-4">Copy and paste the link into your browser's URL bar, or send it to someone.</p>
+      </div>
+      <div class="py-3">
+        <h2 class="h2 fs-3">Step 6</h2>
+        <p class="fs-4">You or the person you've shared the link with can click the link and see the premium content
+          behind the paywall!</p>
+      </div>
+    </div>
+    <div style="height:10rem"></div>
+    <div class="container text-center fs-5" style="width:55rem;">
+      <p>
+      <h2 class="h2 pb-4 fs-3">
+        Shout Outs
+      </h2>
+      </p>
+
+      <p>
+        The Gib project is stewarded by Adelya Latifulina and Alexander Mozeak of <a href="https://astar.app/">A*
+          Digital LLC</a>. This
+        project is possible through the support of <a href="https://www.grantfortheweb.org/">Grant for the Web </a>
+        and we want to thank their team
+        for this opportunity. We would also like to thank the team at the <a
+          href="https://interledger.org/">Interledger Foundation</a> for
+        their support.
+      </p>
+      <p>
+        Special thanks to the team behind this iteration: Tyler Altenhofen, our Full Stack Developer; Kris Castro, our
+        Director of Motion Graphics; Tamir Haddad our General Counsel; and Kim Holzel our Regulatory Counsel.
+      </p>
+      <p>
+        &#10084;
+      </p>
+    </div>
+
+    <%- include('./partials_footer'); %>
+  </main>
+
+</body>
+
+</html>

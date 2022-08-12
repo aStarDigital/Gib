@@ -131,6 +131,10 @@ main {
   height: 100%;
 }
 
+.feedback-inputs {
+  padding-top: 1px;
+}
+
 .feedback-input {
   width: 100%;
 }
@@ -146,8 +150,8 @@ textarea.feedback-input {
 #notice-text {
   padding: 1rem 3rem;
   border-radius: 0.3rem;
-  box-shadow: #ff191944 1px 1px 10px;
-  color: red;
+  box-shadow: #BAD9C2 1px 1px 10px;
+  color: #539664;
   font-family: robotoBold;
 }
 
