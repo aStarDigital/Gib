@@ -1,3 +1,10 @@
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
 .page-logo {
   font-size: 6rem;
   font-family: inriaBold;
@@ -89,8 +96,8 @@
 
 #premium-cover { 
   position: absolute;
-  top: 25vh;
-  height: 59vh;
+  top: 20vh;
+  height: 69vh;
   width: 100%;
   background-color: #BFE0FF;
   font-family: 'Gothic A1';
@@ -114,20 +121,7 @@
 }
 
 .footer-container {
-  position: absolute;
   width: 100vw;
-  bottom: 0;
-}
-
-.generate-footer.footer-container {
-  position: relative;
-  margin-top: auto;
-}
-
-.generate-main {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .paywall-content {
@@ -135,6 +129,26 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+}
+
+.feedback-input {
+  width: 100%;
+}
+
+textarea.feedback-input {
+  height: 250px;
+}
+
+.form-notice {
+  display: none;
+}
+
+#notice-text {
+  padding: 1rem 3rem;
+  border-radius: 0.3rem;
+  box-shadow: #ff191944 1px 1px 10px;
+  color: red;
+  font-family: robotoBold;
 }
 
 @keyframes fadeInAnimation {

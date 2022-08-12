@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials_head'); %>
+    <script src="public/jquery-3.6.0.js"></script>
+    <script src="public/feedback.js"></script>
+</head>
+
+<body>
+  <main class="feedback-main">
+    <%- include('./partials_header'); %>
+    <div class="feedback-content">
+
+      <div class=" mt-5">
+        <div class="container-lg text-center">
+          <h1 class="h1 mb-3 " style="font-size:4rem;">
+            Feedback
+          </h1>
+        </div>
+      </div>
+
+      <div class="mt-5">
+        <div class="container-lg text-center">
+          <h2 class="h1 mb-3 fs-4">
+            We'd love to hear your thoughts on Gib. Fill out this form to let us know how we can make it better.
+          </h2>
+          <i class="privacy-notice">Please see our Privacy Policy for information about how your data is used.</i>
+        </div>
+        <div style="height:2rem"></div>
+      </div>
+
+      <div class="form-notice mt-3 mb-4">
+        <div class="container-sm text-center">
+          <i id="notice-text">
+          </i>
+        </div>
+      </div>
+
+      <div class="feedback-inputs mt-3">
+        <div class="">
+          <div class="fs-5 container" style="width: 50%">
+            <div class="row my-3">
+              <label for="name" class="col">
+                Your name (required):
+              </label>
+              <div class="col">
+                <input class="feedback-input" id="name" type="text" required></input>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <label for="email" class="col">
+                Your email address:
+              </label>
+              <div class="col">
+                <input class="feedback-input" id="email" type="email"></input>
+              </div>
+            </div>
+
+            <div class="row">
+              <label for="feedback" class="col">
+                Your feedback:
+              </label>
+              <div class="col">
+                <textarea class="feedback-input" id="feedback"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class=" mt-3">
+        <div class="container-lg text-center">
+          <button id="submit-feedback" class="btn btn-lg btn-success" type="submit">Submit Feedback</button>
+        </div>
+        <div style="height:2rem"></div>
+      </div>
+
+      <div id="gibLinkSection" class="my-4" hidden>
+        <div class="container-lg text-center fs-3">
+          Copy and share the link below:
+        </div>
+        <div class="container-lg text-center mt-3 fs-2">
+          <div id="gibLink"></div>
+        </div>
+      </div>
+    </div>
+
+      <div class="footer-container feedback-footer">
+        <%- include('./partials_footer'); %>
+      </div>
+  </main>
+
+</body>
+
+</html>
