@@ -42,13 +42,14 @@ main {
 }
 
 .gib-logo img {
-  width: 750px;
+  width: 100%;
 }
 
 .overview-video {
   margin-top: 2rem;
   animation-delay: 1500ms;
   box-shadow: #00000044 1px 1px 10px;
+  width: 100%;
 }
 
 #premium-container {
@@ -92,6 +93,10 @@ main {
 
 #premium-content p {
   font-size: 1.2rem;
+}
+
+.premium-content__substance {
+  width: 100%;
 }
 
 #premium-cover { 
@@ -162,4 +167,47 @@ textarea.feedback-input {
   100% {
       opacity: 1;
    }
+}
+
+@media only screen and (max-width: 600px) {
+  header > a > svg {
+    display: none;
+  }
+
+  li.px-1 {
+    outline: 1px solid #BAD9C2;
+    box-shadow: 2px 3px #BAD9C2;
+    flex: 1 0 auto;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    text-align: center;
+  }
+
+  #premium-header {
+    transform: none;
+  }
+
+  #premium-content-label {
+    width: 100%;
+    font-size: 50px;
+    line-height: 85px;
+  }
+
+  #premium-cover {
+    height: 114%;
+    top: 23%;
+  }
+
+  .generate-content img {
+    width: 100%;
+  }
+
+  .fs-2 #gibLink {
+    font-size: 1.3rem;
+  }
+
+  .feedback-inputs__form {
+    width: 100% !important;
+  }
 }
