@@ -210,4 +210,19 @@ textarea.feedback-input {
   .feedback-inputs__form {
     width: 100% !important;
   }
+
+  .generate-input__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .generate-input {
+    flex-direction: column;
+  }
+
+  .generate-input>* {
+    padding: 0;
+    max-width: none;
+  }
 }
