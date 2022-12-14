@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/aStarDigital/Gib#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
