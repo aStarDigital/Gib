@@ -81,15 +81,15 @@ app.get('/demo', (req, res, next) => {
 })
 
 /** Renders the install template for the site at the `/install` route. */
-app.get('/install', (req, res, next) => {
-  try {
-    ejs.renderFile("templates/install.html", {}, {}, function (err, str) {
-      return res.send(str)
-    });
-  } catch (err) {
-    next(err)
-  }
-})
+// app.get('/install', (req, res, next) => {
+//   try {
+//     ejs.renderFile("templates/install.html", {}, {}, function (err, str) {
+//       return res.send(str)
+//     });
+//   } catch (err) {
+//     next(err)
+//   }
+// })
 
 /** Renders the generate template for the site at the `/generate` route. */
 app.get('/generate', (req, res, next) => {
