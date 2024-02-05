@@ -1,4 +1,5 @@
 public/*.mp4
 public/feedback.js
-
+.firebase
+production.env
 NOTES.md
