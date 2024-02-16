@@ -16,19 +16,6 @@
     <%- include('./partials_header'); %>
     <div id="premium-container">
       <div id="premium-content">
-        <div class=" mt-5">
-          <div id="premium-header" class="pt-4">
-            <div class="container-lg text-center">
-              <span class="h1 " style="font-size:3rem;">
-                (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
-              </span>
-            </div>
-            <div class="container-lg text-center">
-              <span id="premium-content-label">Premium Content !</span>
-            </div>
-          </div>
-        </div>
-
         <div class="premium-content__substance">
           <div class="my-5 pt-5 container text-center">
             <div class="text-start">
@@ -54,24 +41,12 @@
           </div>
         </div>
 
+        <div class="container-lg text-center pt-5">
+          <video class="overview-video fade-in" src="gib-overview.mp4" controls preload="metadata"></video>
+        </div>
+
         <div class="footer-container">
           <%- include('./partials_footer'); %>
-        </div>
-      </div>
-
-      <div id="premium-cover">
-        <div class="paywall-content">
-          <div class="container-lg text-center">
-
-            <div style="font-size: 8rem">
-              <img src="oops-semi-bold.svg" alt="A disappointed kaomoji character." class="paywall-oops">
-            </div>
-
-            <span id="paywall-text" class="h1" style="font-size:3rem;">
-              Oh no, you've hit a paywall!
-            </span>
-            <p class="paywall-hint">Try visiting the <a href="/generate">Generate Link</a> tab to unlock this content.</p>
-          </div>
         </div>
       </div>
     </div>
