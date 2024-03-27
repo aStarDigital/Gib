@@ -2,3 +2,4 @@
 node_modules/
 drafts/
 payment_handler/.firebaserc
+backend/.firebase/
